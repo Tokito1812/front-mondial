@@ -297,11 +297,11 @@ select{color-scheme:dark}select option,select optgroup{background:#1e1a12!import
 <div id="trm"><div class="bx"><h2>Priorité nationale <span id="anth"></span></h2><div id="trinfo"></div><div id="trw"></div><div class="ac" style="display:flex;justify-content:flex-end;margin-top:10px"><button id="trX">Fermer</button></div></div></div>
 <div id="evm"><div class="bx"><h2 id="evt"></h2><div id="evx"></div><div class="ac" id="evb"></div></div></div><div id="toasts"></div><div id="press"></div>
 <div id="start"><div id="sbg"></div><button id="mus" title="Musique">🔊</button><h1>Front mondial</h1><p style="max-width:560px;color:#9fab9f">Grande stratégie inspirée de Hearts of Iron IV : industrie, ressources, commerce, recherche, diplomatie, généraux et guerre. Choisissez votre époque, puis votre nation.</p><div id="eras"></div><p id="erad"></p><select id="cs" aria-label="Nation"></select><label id="hml" title="Activé : l’IA suit le cours de l’histoire (événements, successions, peu de guerres improvisées). Désactivé : bac à sable imprévisible."><input type="checkbox" id="hm" checked> Histoire fidèle</label><button id="ldb">👤 Modifier les dirigeants</button><button id="go" style="font-size:22px;padding:10px 34px">Commencer</button></div>
-<script src="scenarios.js"></script>
+<script src="scenarios.js?v=202611172126"></script>
 
-<script src="carte.js"></script>
-<script src="modeles.js"></script>
-<script src="villes.js"></script>
+<script src="carte.js?v=202611172126"></script>
+<script src="modeles.js?v=202611172126"></script>
+<script src="villes.js?v=202611172126"></script>
 <script>
 
 let CT=D.C,SC=null,SO=[],ERA="1936",NAT=new Set(),UN=["inf.","chars","Infanterie","Chars","char"];const CT0=D.C,ST=D.S,N=ST.length,MW=1400.16,MH=550,R=2,BW=Math.round(MW*R),BH=MH*R,BW2=Math.round(MW),BH2=MH,$=id=>document.getElementById(id);
@@ -2149,11 +2149,11 @@ function urbanDraw(g,x0,y0,x1,y1,k){if(k<3.2||!CITY)return;const det=Math.min(1,
     gr=g.createRadialGradient(cx,cy,0,cx,cy,R0*.45);gr.addColorStop(0,"rgba(96,88,82,.55)");gr.addColorStop(1,"rgba(96,88,82,0)");g.fillStyle=gr;g.beginPath();g.arc(cx,cy,R0*.45,0,7);g.fill();}}
 /* ===== Imagerie : version légère d’abord, puis haute définition ===== */
 let TERRS=null;const TERRSI=new Image();
-TERRSI.onload=()=>{TERRS=TERRSI;if(!REALOK){REALOK=true;TERR=TERRSI;RELIEF=null;}SEAIMG=TERRSI;setTimeout(()=>{try{SEAFX=seaFix(TERRSI);if(SEAFX)SEAIMG=SEAFX;vstale=2;dirty=1;}catch(e){console.error(e);}},30);try{paintAll();}catch(e){}vstale=2;dirty=1;REALT.src="terrain.jpg";};
-TERRSI.onerror=()=>{REALT.src="terrain.jpg";};
+TERRSI.onload=()=>{TERRS=TERRSI;if(!REALOK){REALOK=true;TERR=TERRSI;RELIEF=null;}SEAIMG=TERRSI;setTimeout(()=>{try{SEAFX=seaFix(TERRSI);if(SEAFX)SEAIMG=SEAFX;vstale=2;dirty=1;}catch(e){console.error(e);}},30);try{paintAll();}catch(e){}vstale=2;dirty=1;REALT.src="terrain.jpg?v=202611172126";};
+TERRSI.onerror=()=>{REALT.src="terrain.jpg?v=202611172126";};
 function terrPat(g){const src=g===bctx&&TERRS?TERRS:TERR;let p=TPAT.get(g);if(!p||p._t!==src){p=g.createPattern(src,"no-repeat");p.setTransform(new DOMMatrix().scale(MW/src.width,MH/src.height));p._t=src;TPAT.set(g,p);}return p;}
 
-TERRSI.src="terrain_s.jpg";
+TERRSI.src="terrain_s.jpg?v=202611172126";
 /* =====================================================================
    Arbres nationaux (France très développée, autres puissances en bref)
    format : id|colonne|ligne|jours|icône|prérequis(,)|exclusif|nom|effets|actions spéciales|description
